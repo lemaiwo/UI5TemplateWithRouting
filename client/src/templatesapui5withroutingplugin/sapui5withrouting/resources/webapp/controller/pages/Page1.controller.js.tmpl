@@ -1,0 +1,19 @@
+sap.ui.define([
+		"{{formatNamespace basicSAPUI5ApplicationProject.parameters.namespace.value}}/controller/BaseController"
+	], function (BaseController) {
+		"use strict";
+
+		return BaseController.extend("{{basicSAPUI5ApplicationProject.parameters.namespace.value}}.controller.pages.{{basicSAPUI5ApplicationProject.parameters.name1.value}}", {
+			onInit: function() {
+				var route = this.getRouter().getRoute("RouteView1");
+				route.attachPatternMatched(this.onRouteMatchedRequest, this);
+			},
+			onRouteMatchedRequest: function(oEvent) {
+			},
+			toSecondPage:function(){
+				this.getRouter().navTo("RouteView2");
+			}
+		});
+
+	}
+);
